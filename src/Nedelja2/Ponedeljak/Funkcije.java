@@ -5,12 +5,13 @@ public class Funkcije {
         double ocena1 = 5;
         int ocena2 = 2;
 
-        double prosek = average(ocena1, ocena2);
+        double prosek = average(ocena1, ocena2); // Позив функције са параметрима
 
         System.out.println(prosek); // 3.5
         System.out.println(average(ocena1, ocena2)); // 3.5
 
         average2(ocena1, ocena2); // 3.5
+
     }
 
     // Написати фју која прима два броја и ВРАЋА средњу вредност та два броја

@@ -1,31 +1,41 @@
 package Nedelja3.Vikend;
 
 public class Domaci3 {
-    public boolean validParen(String input) {
 
-        if(input.isEmpty()) {
-            return true;
-        }
+    public static boolean isValid(String str) {
+        boolean isTrue = true;
+        int count = 0;
 
-        else {
-            for (int i = 0; i < input.length() - 1; i++) {
-                if ((input.charAt(i) == '(' && input.charAt(i + 1) == ')') ||
-                        (input.charAt(i) == '{' && input.charAt(i + 1) == '}') ||
-                        (input.charAt(i) == '[' && input.charAt(i + 1) == ']')) {
-                    input = input.substring(0, i) + input.substring(i + 2);
-                    System.out.println("Input is: " + input);
-                    validParen(input);
-                }
+        for (int i = 0; i < str.length(); i++)
+
+            if (str.charAt(i) == '(')
+            {
+                count++;
             }
-            return false;
+            else
+            {
+                count--;
+            }
+
+        if (count < 0)
+        {
+            isTrue = false;
         }
+
+
+        if (count != 0)
+        {
+            isTrue = false;
+        }
+
+        return count == 0;
     }
 
     public static void main(String[] args) {
-        Domaci3 sol = new Domaci3();
-        System.out.println(sol.validParen(""));
-        System.out.println(sol.validParen("()()()")); // returns false for some reason
-        System.out.println(sol.validParen("((()()))"));
+        System.out.println(isValid("()()()"));
+        System.out.println(isValid(")()("));
+        System.out.println(isValid("(()(()"));
+        System.out.println(isValid("((()()))"));
     }
 }
 
